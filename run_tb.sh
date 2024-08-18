@@ -2,7 +2,7 @@
 
 rm -r obj_dir
 
-verilator --binary --trace --timescale 1ns/1ps --top-module adder_tb -I *.sv
+verilator --binary --trace --timescale 1ns/1ps --assert --top-module adder_tb -I *.sv
 
 cd obj_dir
 

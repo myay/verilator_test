@@ -5,17 +5,24 @@ logic [31:0] a_in, b_in;
 logic [31:0] y_out;
 
 initial begin
-	$display("Hello!");
+	$display("--- Starting adder test. ---");
 	$dumpfile("dump.vcd");
 	$dumpvars();
+
+	a_in = 32'h0;	
+	b_in = 32'h0;
 	
 	#100;
-	a_in = 1; 
-	b_in = 2;
+	a_in = 32'h1; 
+	b_in = 32'h2;
+	#1;
+	assert (y_out == 32'h3) else $error("Addition is wrong.");	
 	
 	#100;
-	a_in = 2; 
-	b_in = 3;
+	a_in = 32'h2; 
+	b_in = 32'h3;
+	#1;
+	assert (y_out == 32'h5) else $error("Addition is wrong.");
 	
 	#100;
 	$finish;
